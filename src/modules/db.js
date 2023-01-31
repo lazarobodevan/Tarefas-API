@@ -10,4 +10,12 @@ async function connect(){
 }
 connect();
 
-module.exports = {}
+
+async function selectTasks(){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT * FROM tarefas'); 
+    return await rows;
+}
+
+
+module.exports = {selectTasks}
