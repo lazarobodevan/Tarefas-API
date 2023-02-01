@@ -1,7 +1,7 @@
 # Tarefas - API
-Esta é uma aplicação construída com Node JS e MySQL para gerenciar tarefas de um usuário.
+This is an application developed with Node JS and MySQL in order to manage tasks.
 
-## Instalação
+## Installation
 
 This application requires:
 - [MYSQL & MySQL Server](https://dev.mysql.com/downloads/)
