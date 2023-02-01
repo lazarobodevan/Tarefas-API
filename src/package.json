@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lazarobodevan/tarefas#readme",
   "devDependencies": {
+    "eslint": "^8.33.0",
     "nodemon": "^2.0.20"
   },
   "dependencies": {
