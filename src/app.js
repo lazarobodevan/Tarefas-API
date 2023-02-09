@@ -4,14 +4,18 @@ const app = express();
 
 const router = require('./router');
 
+const cors = require('cors');
+
 var bodyParser = require('body-parser');
 
+app.use(cors());
 //use bodyParser() to let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(router);
 app.use(express.json());
+
 
 app.use(function (req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
