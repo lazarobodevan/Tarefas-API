@@ -2,6 +2,7 @@ const taskModel = require('../models/taskModel');
 
 const getTasks = async (req, res) =>{
     const tasks = await taskModel.getTasks();
+	res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(200).json(tasks)
 }
 
