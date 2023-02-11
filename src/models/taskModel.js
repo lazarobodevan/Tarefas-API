@@ -1,4 +1,5 @@
 const connection = require('../modules/db');
+
 const getTasks = async () =>{
     const [tasks] = await connection.execute('SELECT * FROM tasks');
     return tasks;
@@ -6,19 +7,23 @@ const getTasks = async () =>{
 
 const createTask = async (task) =>{
 
-    const {name, description, position} = task;
+    let {name, description} = task;
+	if(description == undefined)
+		description= null;
+	
+	console.log(description)
 
-    const [createdTask] = await connection.execute("INSERT INTO tasks (name,description,position,status) VALUES (?,?,?,?);", [name, description,position,"PENDENTE"]);
+    const [createdTask] = await connection.execute("INSERT INTO tasks (name,description,status) VALUES (?,?,?);", [name, description,"PENDENTE"]);
 
     return createdTask;
 }
 
 const updateTask = async (id, task) =>{
-    const {name, description, position, status} = task;
+    const {name, description, status} = task;
 
     const [updatedTask] = await connection.execute(
-            'UPDATE tasks SET name = ?, description = ?, position = ?, status = ? WHERE id = ?',
-            [name, description, position, status, id]
+            'UPDATE tasks SET name = ?, description = ?, status = ? WHERE id = ?',
+            [name, description, status, id]
             );
 }
 
